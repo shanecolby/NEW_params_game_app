@@ -24,4 +24,18 @@ class Api::GamesController < ApplicationController
     render "the_number.json.jb"
 
   end
+
+  def segment_number
+    @number = params[:number].to_i
+    correct_answer = 8
+
+    if @number > correct_answer
+      @message = "you guessed too high!"
+    elsif @number < 8
+      @message = "you guessed too low!"
+    else
+      @message = "you guessed correctly!"
+    end
+    render "segment_number.json.jb"
+  end
 end
