@@ -9,4 +9,18 @@ class Api::GamesController < ApplicationController
     end
     render "name.json.jb"
   end
+
+  def number
+    p params[:guess]
+
+    if params[:guess].to_i > 8
+      @message = "you guessed too high!"
+    elsif params[:guess].to_i < 8
+      @message = "you guessed too low!"
+    else
+      @message = "you guessed correctly!"
+    end
+    render "the_number.json.jb"
+
+  end
 end
