@@ -9,4 +9,10 @@ class Api::ExamplePagesController < ApplicationController
     @sentence  = "You drive a #{@vehicle}"
     render "segment.json.jb"
   end
+
+  def body
+    @password = params[:password]
+    @username =params[:username]
+    render "body.json.jb"
+  end
 end
