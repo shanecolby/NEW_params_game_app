@@ -13,6 +13,11 @@ class Api::ExamplePagesController < ApplicationController
   def body
     @password = params[:password]
     @username =params[:username]
+    if @username == "hugh" && @password == "swordfish"
+      @message = "valid credentials"
+    else 
+      @message = "invalid credentials"
+    end
     render "body.json.jb"
   end
 end
